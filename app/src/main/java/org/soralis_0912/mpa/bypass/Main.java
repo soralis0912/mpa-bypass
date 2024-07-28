@@ -17,7 +17,7 @@ public class Main implements IXposedHookLoadPackage {
             return;
         }
 
-        XposedHelpers.findAndHookMethod("j.a.a.a.b.a", lpparam.classLoader, "l", new XC_MethodHook() {
+        XposedHelpers.findAndHookMethod("p6.a", lpparam.classLoader, "l", new XC_MethodHook() {
 
             @Override
             protected void afterHookedMethod(MethodHookParam param) throws Throwable {
