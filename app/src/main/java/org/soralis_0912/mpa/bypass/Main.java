@@ -19,7 +19,14 @@ public class Main implements IXposedHookLoadPackage {
             return;
         }
 
-        String className = getPackageVersion(lpparam) < 1395 ? "j.a.a.a.b.a" : "p6.a";
+        int pver = getPackageVersion(lpparam);
+        String className =
+            pver < 1395 ? "j.a.a.a.b.a" : // ~v78
+            pver < 1500 ? "p6.a" :  // v80~v88
+            pver < 1511 ? "l6.a" :  // v89
+            pver < 1520 ? "t6.a" :  // v90
+            "q6.a";                 // v91~
+
         XposedHelpers.findAndHookMethod(className, lpparam.classLoader, "l", new XC_MethodHook() {
 
             @Override
